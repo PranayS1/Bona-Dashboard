@@ -1,0 +1,31 @@
+a {
+  cursor: pointer;
+  background-color: transparent !important;
+  text-decoration: none !important;
+}
+nav {
+  border-bottom-width: 0px;
+}
+.navbar {
+  margin-bottom: 0;
+  padding: 0 1rem;
+}
+li {
+  list-style-type: none;
+}
+
+/* For Laptop view */
+@media only screen and (min-width: 992px) {
+  .navbar .navbar-nav .nav-item .nav-link{
+    padding: 15px;
+  }
+  .nav-item:not(:last-child) .nav-link {
+    border-right: 1px solid #414141;
+  }
+  .nav-item:first-child .nav-link {
+    border-left: 1px solid #414141;
+  }
+  #searchInput {
+    margin-left: 20rem
+  }
+}
