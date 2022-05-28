@@ -1,0 +1,81 @@
+#bannerImage {
+  width: -webkit-fill-available;
+  width: -moz-available;
+}
+.container-fluid {
+  padding: 70px 0 40px;
+  text-align: center;
+}
+.card {
+  margin: 0 1%;
+  height: 100%;
+}
+.row {
+  margin-right: 0;
+  padding: 0 70px;
+}
+.row div {
+  margin-bottom: 30px;
+}
+ul {
+  margin-bottom: 0;
+  padding: 0;
+}
+li {
+  width: 33.33%;
+  display: inline-block;
+  background: #EDF3F3;
+  border-right: 1px solid #fff;
+  padding: 0.75rem 1.25rem;
+}
+a {
+  color: gray;
+}
+a:hover {
+  color: #498BF9;
+  text-decoration: none;
+}
+i {
+  margin-right: 10px;
+}
+.img-only-card, .text-only-card {
+  width: 50%;
+  display: inline-block;
+}
+.text-only-card {
+  position: relative;
+  padding-left: 15px;
+  padding-bottom: 0;
+  margin-bottom: 0 !important;
+  text-align: left;
+  padding: 15px;
+}
+.text-only-card .card-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+.img-only-card {
+  height: 100%;
+}
+.bigger-card-body {
+  display: flex;
+  margin-bottom: 0 !important;
+  padding: 0;
+}
+
+/* For mobile and tablet screen */
+@media only screen and (max-width: 991px) {
+  #bannerImage {
+    padding-top: 5px;
+  }
+  .row {
+    margin: 0;
+    padding: 0;
+  }
+  .container-fluid {
+    padding-top: 40px;
+  }
+}
