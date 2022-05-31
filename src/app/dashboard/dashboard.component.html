@@ -2,94 +2,51 @@
 <div class="container-fluid">
   <div class="row">
     <div
-      class="col-xs-12 col-sm-6 col-md-4"
+      [ngClass]="
+        item.content == ''
+          ? 'col-xs-12 col-sm-6 col-md-4'
+          : 'col-xs-12 col-sm-12 col-md-8'
+      "
       *ngFor="let item of cardArrDetails"
     >
-      <div class="card">
+      <div class="card" [ngStyle]="{ margin: item.content != '' ? '0' : '' }">
         <img
           class="card-img-top"
-          src="assets/images/{{ item.imageSrc }}.jpeg"
-          alt="Card image cap"
+          src="{{ item?.imgSrc }}"
+          alt="Tile image"
+          *ngIf="item?.content == ''"
         />
-        <div class="card-body">
-          <h5 class="card-title">{{ item.title }}</h5>
-        </div>
-        <ul class="card-footer">
-          <li>
-            <a href="#"><i class="fa fa-heart"></i>57</a>
-          </li>
-          <li>
-            <a href="#"><i class="fa fa-comment"></i>6</a>
-          </li>
-          <li>
-            <a href="#"><i class="fa fa-eye"></i>138</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-8">
-      <div class="card">
-        <div class="card-body bigger-card-body">
+        <div
+          class="card-body"
+          [ngClass]="{ 'bigger-card-body': item?.content != '' }"
+        >
           <img
             class="card-img-top img-only-card"
-            src="assets/images/4.jpeg"
-            alt="Card image cap"
+            src="{{ item?.imgSrc }}"
+            alt="Tile image"
+            *ngIf="item?.content != ''"
           />
-          <div class="text-only-card">
-            <h5 class="card-title">Health</h5>
-            <p class="card-text" style="font-weight: bold">
-              How Did Van Gogh's Turbulent Mind Depict One of the Most Complex
-              Concepts in Physics?
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Repudiandae temporibus magnam, animi corporis modi, culpa non hic
-              sint quo nihil similique at praesentium ut porro exercitationem
-              libero veritatis. Illo, voluptas!
-            </p>
-            <h6>Lora Palmer</h6>
-            <p>on Sep 29, 2017 at 9:48am</p>
+          <div [ngClass]="{ 'text-only-card': item?.content != '' }">
+            <h5 class="card-title" *ngIf="item?.heading !== ''">
+              {{ item.heading }}
+            </h5>
+            <h5 class="card-title">{{ item?.title }}</h5>
+            <p *ngIf="item.content !== ''">{{ item?.content }}</p>
+            <h6 *ngIf="item.author !== ''">{{ item?.author }}</h6>
+            <p *ngIf="item.publishDate !== ''">{{ item?.publishDate }}</p>
             <ul class="card-footer">
               <li>
-                <a href="#"><i class="fa fa-heart"></i>57</a>
+                <a href="#"><i class="fa fa-heart"></i>{{ item?.likes }}</a>
               </li>
               <li>
-                <a href="#"><i class="fa fa-comment"></i>6</a>
+                <a href="#"><i class="fa fa-comment"></i>{{ item?.comment }}</a>
               </li>
               <li>
-                <a href="#"><i class="fa fa-eye"></i>138</a>
+                <a href="#"><i class="fa fa-eye"></i>{{ item?.views }}</a>
               </li>
             </ul>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-md-4">
-      <div class="card">
-        <img
-          class="card-img-top"
-          src="assets/images/2.jpeg"
-          alt="Card image cap"
-        />
-        <div class="card-body">
-          <h5 class="card-title">
-            How Did Van Gogh's Turbulent Mind Depict One of the Most Complex
-            Concepts in Physics?
-          </h5>
-        </div>
-        <ul class="card-footer">
-          <li>
-            <a href="#"><i class="fa fa-heart"></i>57</a>
-          </li>
-          <li>
-            <a href="#"><i class="fa fa-comment"></i>6</a>
-          </li>
-          <li>
-            <a href="#"><i class="fa fa-eye"></i>138</a>
-          </li>
-        </ul>
       </div>
     </div>
   </div>

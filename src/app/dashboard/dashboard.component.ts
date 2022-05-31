@@ -1,16 +1,20 @@
 import { Component, OnInit } from '@angular/core';
+import { CardData, DashboardService } from '../dashboard.service';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css'],
 })
-export class DashboardComponent {
-  cardArrDetails = [...Array(3)].map((_, i) => ({
-    imageSrc: i + 1,
-    title:
-      "How Did Van Gogh's Turbulent Mind Depict One of the Most Complex Concepts in Physics?",
-  }));
+export class DashboardComponent implements OnInit {
+  cardArrDetails!: CardData[];
 
-  constructor() {}
+  constructor(private dashboardService: DashboardService) {}
+
+  ngOnInit(): void {
+    // For setting cardArrDetails with card data from backend
+    this.dashboardService.getCardData().subscribe((data) => {
+      this.cardArrDetails = data;
+    });
+  }
 }
